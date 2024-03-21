@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "my-app"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <cardlean94@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+uvicorn = "^0.23.2"
+pydantic = "^1.9.0"
+langserve = { version = ">=0.0.30", extras = ["server"] }
+openai = "^1.7.1"  # Reemplaza con la versión específica que necesites
+
+[tool.langserve]
+export_module = "packages.chain"
+export_attr = "chain"
+
+[tool.poetry.dev-dependencies]
+langchain-cli = ">=0.0.15"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
